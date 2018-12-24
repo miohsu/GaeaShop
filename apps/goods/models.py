@@ -15,7 +15,7 @@ class GoodsCategory(models.Model):
     name = models.CharField(max_length=64, null=True, blank=True, verbose_name='类别名', help_text='类别名')
     code = models.CharField(max_length=32, null=True, blank=True, verbose_name='类别code', help_text='类别code')
     desc = models.TextField(max_length=128, null=True, blank=True, verbose_name='类别描述')
-    category_type = models.CharField(max_length=32, choices=CATEGORY_TYPE, verbose_name='类别级别', help_text='类别级别')
+    category_type = models.IntegerField(choices=CATEGORY_TYPE, verbose_name='类别级别', help_text='类别级别')
     parent_category = models.ForeignKey('self', null=True, blank=True, verbose_name='父类别', help_text='父类别',
                                         related_name='sub_cat', on_delete=models.CASCADE)
     is_tab = models.BooleanField(default=False, verbose_name='是否导航', help_text='是否导航')
@@ -25,8 +25,8 @@ class GoodsCategory(models.Model):
         verbose_name = '商品类别'
         verbose_name_plural = '商品类别'
 
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
 
 
 class GoodsCategoryBrand(models.Model):
@@ -43,8 +43,8 @@ class GoodsCategoryBrand(models.Model):
         verbose_name = '品牌'
         verbose_name_plural = '品牌'
 
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
 
 
 class Goods(models.Model):
@@ -73,8 +73,8 @@ class Goods(models.Model):
         verbose_name = '商品'
         verbose_name_plural = '商品'
 
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
 
 
 class IndexAd(models.Model):
@@ -101,8 +101,8 @@ class GoodsImage(models.Model):
         verbose_name = '商品轮播图'
         verbose_name_plural = verbose_name
 
-        def __str__(self):
-            return self.goods.name
+    def __str__(self):
+        return self.goods.name
 
 
 class Banner(models.Model):
@@ -118,8 +118,8 @@ class Banner(models.Model):
         verbose_name = '轮播商品'
         verbose_name_plural = verbose_name
 
-        def __str__(self):
-            return self.goods.name
+    def __str__(self):
+        return self.goods.name
 
 
 class HotSearchWords(models.Model):
