@@ -22,13 +22,13 @@ class BaseSetting(object):
 
 
 class GlobalSettings(object):
-    site_title = "慕学生鲜后台"
-    site_footer = "mxshop"
+    site_title = "GaeaShopManagement"
+    site_footer = "gaeashop"
     # menu_style = "accordion"
 
 
 class VerifyCodeAdmin(object):
-    list_display = ['code', 'mobile', "add_time"]
+    list_display = ['code', 'mobile', "create_time"]
 
 
 xadmin.site.register(VerifyCode, VerifyCodeAdmin)
