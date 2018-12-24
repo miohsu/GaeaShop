@@ -20,3 +20,5 @@ drf-extensions
 django-redis
 pycryptodome
 raven
+PyMySQL
+DBUtils
