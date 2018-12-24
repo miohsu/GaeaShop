@@ -14,7 +14,7 @@ class ShoppingCart(models.Model):
     购物车
     """
     user = models.ForeignKey(User, verbose_name='用户', on_delete=models.CASCADE)
-    goods = models.ForeignKey('Goods', verbose_name='商品', on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, verbose_name='商品', on_delete=models.CASCADE)
     goods_num = models.IntegerField(default=0, verbose_name='购买数量')
     create_time = models.DateTimeField(auto_now_add=True)
 
@@ -61,8 +61,8 @@ class OrderGoods(models.Model):
     """
     订单的商品详情
     """
-    order = models.ForeignKey('OrderInfo', verbose_name='订单信息', related_name='goods', on_delete=models.CASCADE)
-    goods = models.ForeignKey('Goods', verbose_name='商品', on_delete=models.CASCADE)
+    order = models.ForeignKey(OrderInfo, verbose_name='订单信息', related_name='goods', on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, verbose_name='商品', on_delete=models.CASCADE)
     goods_num = models.IntegerField(default=0, verbose_name='商品数量')
     create_time = models.DateTimeField(auto_now_add=True)
 
