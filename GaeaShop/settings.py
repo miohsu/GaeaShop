@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR)
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,8 +29,9 @@ SECRET_KEY = 'z7%gg_+go2v=n53%%gooon6)h*ewak0y*lyf*z39qk3db2gczj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL ='users.UserProfile'
 
 # Application definition
 
@@ -36,7 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    'apps.users.apps.UsersConfig',
+    'DjangoUeditor',
+    'users',
+    'goods',
+    'user_operation',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +95,7 @@ DATABASES = {
         'PASSWORD': '123',
         'HOST': '192.168.1.74',
         'PORT': '',
+        'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
 }
 
