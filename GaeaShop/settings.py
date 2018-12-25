@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'gaea_shop',
         'USER': 'gaea',
         'PASSWORD': '123',
-        'HOST': '192.168.1.74',
+        'HOST': '192.168.1.72',
         'PORT': '',
         'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}
     }
