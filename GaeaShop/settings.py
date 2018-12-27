@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'trade.apps.TradeConfig',
     'xadmin',
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,4 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
